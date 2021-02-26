@@ -14,6 +14,23 @@ let pokemonRepository = (function() {
     },
     getAll: function(){
       return pokemonList;
+    },
+
+    addListItem: function(pokemon){
+      selectElement = document.querySelector('ul');
+      let listItem = document.createElement('li');
+      let button = document.createElement('button');
+      button.innerText = pokemon.name;
+      button.classList.add('buttonClass');//Adds the class if it isn't present yet
+      button.addEventListener('click', function (event) {
+        showDetails(pokemon);
+      });
+      listItem.appendChild(button);
+      selectElement.appendChild(listItem);
+    },
+
+    showDetails: function(pokemon){
+      console.log(pokemon);
     }
   };
 })();
@@ -21,7 +38,9 @@ let pokemonRepository = (function() {
 //This loop uses the forEach to loop through the Pokemon objects and write them to the DOM
 //First the function getAll from pokemonRepository is used to get the array
 pokemonRepository.getAll().forEach(function(user){
-  document.write(user.name + " is " + user.height + " tall and has types " + user.types + ".");
-  document.write("<br><br>");
+
+    pokemonRepository.addListItem(user);
+
+
 
 });
