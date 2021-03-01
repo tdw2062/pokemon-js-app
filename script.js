@@ -8,6 +8,10 @@ let pokemonRepository = (function() {
     { name: 'Squirtle', height: 0.5, types: ['Water']}
   ]; 
 
+  function showDetails(pokemon){
+    console.log(pokemon);
+  }
+
   return {
     add: function(pokemon) {
       pokemonList.push(pokemon);
@@ -29,9 +33,6 @@ let pokemonRepository = (function() {
       selectElement.appendChild(listItem);
     },
 
-    showDetails: function(pokemon){
-      console.log(pokemon);
-    }
   };
 })();
 
