@@ -1,5 +1,6 @@
 #modal-container {
   display: none;
+  text-align: center;
 }
 
 #modal-container.is-visible {
