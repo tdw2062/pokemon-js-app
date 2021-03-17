@@ -4,15 +4,15 @@
 let pokemonRepository = (function() {
 
   //Create empty array
-  let pokemonList = []; 
+  let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //Log the name of pokemon to console
   function showDetails(pokemon){
     loadDetails(pokemon).then(function(){
       showModal(pokemon);
-      
-    });
+
+    }); 
   }
 
   //Loadlist function
@@ -36,7 +36,7 @@ let pokemonRepository = (function() {
 
   //Add list item function
   function addListItem(pokemon){
-    selectElement = document.querySelector('ul.pokemon-list');
+    var selectElement = document.querySelector('ul.pokemon-list');
     let listItem = document.createElement('li');
    // listItem.classList.add('group-list-item');
     let button = document.createElement('button');
@@ -44,14 +44,14 @@ let pokemonRepository = (function() {
     button.classList.add('buttonClass');//Adds the class if it isn't present yet
     button.classList.add('btn');//Adds the class if it isn't present yet
     button.classList.add('btn-primary');//Adds the class if it isn't present yet
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
       showDetails(pokemon);
       $('#exampleModal').modal();
     });
     listItem.appendChild(button);
     selectElement.appendChild(listItem);
   }
-  
+
   //Add pokemon
   function add(pokemon){
     pokemonList.push(pokemon);
@@ -77,13 +77,6 @@ let pokemonRepository = (function() {
     });
   }
 
-  window.addEventListener('keydown', (e) => {
-    let modalContainer = document.querySelector('#modal-container');
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-
   return {
     add: add,
     getAll: getAll,
@@ -92,7 +85,7 @@ let pokemonRepository = (function() {
     loadDetails: loadDetails
     };
 
-   
+
 })();
 
 pokemonRepository.loadList().then(function(){
@@ -106,9 +99,9 @@ pokemonRepository.loadList().then(function(){
 function showModal(pokemon){
   let modalBody = $(".modal-body");
   let modalTitle = $(".modal-title");
-  let modalHeader = $(".modal-header");
+  
 
-  modalTitle.empty();
+  modalTitle.empty(); 
   modalBody.empty();
 
   //creating element for name in modal content
@@ -123,5 +116,5 @@ function showModal(pokemon){
   modalTitle.append(nameElement);
   modalBody.append(pokemonImage);
   modalBody.append(heightElement);
- 
+
 }

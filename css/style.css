@@ -1,0 +1,22 @@
+/*Remove the bullets from the list items*/
+
+ul {
+  list-style-type: none;
+}
+
+
+/*Create space in between the CSS list items*/
+
+li {
+  margin: 10px 0;
+}
+
+/*Add a shadow to modal title*/
+.modal-header{
+  text-shadow: 2px 2px blue;
+}
+
+/*Add a border to the modal*/
+.modal-body{
+  border: 4px solid black;
+}
